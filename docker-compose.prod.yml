@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+  collection_leds:
+    build:
+      context: ./services/collection_leds
+      dockerfile: Dockerfile
+    command: gunicorn --bind 0.0.0.0:5000 app
+    volumes:
+      - static_volume:/usr/src/app/
+    expose:
+      - 5000
+    env_file:
+      - ./.env.prod
+  #   depends_on:
+  #     - db
+  # db:
+  #   image: postgres:12-alpine
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
+  #   env_file:
+  #     - ./.env.prod.db
+  nginx:
+    build: ./services/nginx
+    # volumes:
+    #   - static_volume:/home/app/web/project/backend/static
+    ports:
+      - 5000:80
+    # depends_on:
+    #   - ui
+  # ui:
+  #   build: ./services/ui
+  #   container_name: ui
+  #   restart: always
+  #   expose:
+  #     - 80
+  #   depends_on:
+  #     - web
+  node-red:
+    build:
+      context: ./services/node_red
+      dockerfile: Dockerfile
+    environment:
+      - TZ=Europe/Amsterdam
+    ports:
+      - "1880:1880"
+    networks:
+      - node-red-net
+    volumes:
+      - node-red-data:/data
+
+volumes:
+  # postgres_data:
+  static_volume:
+  node-red-data:
+
+networks:
+  node-red-net:

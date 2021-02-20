@@ -1,0 +1,6 @@
+venv/
+ledvenv/
+.idea/
+__pycache__/
+services/node_red/flows_cred.json
+.vs/
