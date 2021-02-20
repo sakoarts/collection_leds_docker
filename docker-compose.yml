@@ -6,6 +6,7 @@ services:
       context: ./services/collection_leds
       dockerfile: Dockerfile
     command: gunicorn --bind 0.0.0.0:5000 app
+    restart: always
     volumes:
       - static_volume:/usr/src/app/
     expose:
@@ -22,6 +23,7 @@ services:
   #     - ./.env.prod.db
   nginx:
     build: ./services/nginx
+    restart: always
     # volumes:
     #   - static_volume:/home/app/web/project/backend/static
     ports:
@@ -40,6 +42,7 @@ services:
     build:
       context: ./services/node_red
       dockerfile: Dockerfile
+    restart: always
     environment:
       - TZ=Europe/Amsterdam
     ports:

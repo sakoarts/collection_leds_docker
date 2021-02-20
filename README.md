@@ -11,11 +11,11 @@ https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry
 
 ## Running
 ### Building
-docker-compose up -d --build
+sudo docker-compose up -d --build
 ### Removing
-docker-compose down -v
+sudo docker-compose down -v
 ### View logs
-docker-compose logs -f
+sudo docker-compose logs -f
 
 ## NORA
 Request a NORA toke at:
