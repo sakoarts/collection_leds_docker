@@ -30,8 +30,7 @@
     ],
     "dependencies": {
         "node-red": "1.2.9",
-        "node-red-contrib-nora": "0.0.34",
-        "node-red-node-wol": "0.1.0"
+        "node-red-contrib-nora": "0.0.34"
     },
     "engines": {
         "node": ">=10"
