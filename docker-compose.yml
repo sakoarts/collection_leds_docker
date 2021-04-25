@@ -4,11 +4,11 @@ services:
   collection_leds:
     build:
       context: ./services/collection_leds
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.mount
     command: gunicorn --bind 0.0.0.0:5000 app:app
-    restart: always
+    restart: unless-stopped
     volumes:
-      - static_volume:/usr/src/app/
+      - ./services/collection_leds/:/usr/src/app/
     expose:
       - 5000
     env_file:
