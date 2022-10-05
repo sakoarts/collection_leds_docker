@@ -1,6 +1,6 @@
 {
     "name": "node-red-docker",
-    "version": "1.2.9",
+    "version": "2.2.3-16",
     "description": "Low-code programming for event-driven applications",
     "homepage": "http://nodered.org",
     "license": "Apache-2.0",
@@ -29,11 +29,11 @@
         }
     ],
     "dependencies": {
-        "node-red": "1.2.9",
-        "node-red-contrib-smartnora": "1.0.4",
-        "node-red-node-wol": "0.1.0"
+        "node-red": "2.2.3",
+        "node-red-contrib-smartnora": "1.16.0",
+        "node-red-node-wol": "0.2.0"
     },
     "engines": {
-        "node": ">=10"
+        "node": ">=12"
     }
 }
