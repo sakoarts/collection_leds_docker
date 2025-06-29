@@ -50,14 +50,10 @@ services:
     build:
       context: ./services/node_red
       dockerfile: Dockerfile
-    restart: always
+    restart: unless-stopped
     environment:
       - TZ=Europe/Amsterdam
-    ports:
-      - "1880:1880"
-    networks:
-      - node-red-net
-      - bridge
+    network_mode: host
     volumes:
       - node-red-data:/data
 
@@ -67,5 +63,4 @@ volumes:
   node-red-data:
 
 networks:
-  node-red-net:
   bridge:
